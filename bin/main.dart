@@ -1,4 +1,3 @@
-
 import 'package:shelf/shelf.dart';
 
 import 'api/blog_api.dart';
@@ -14,7 +13,7 @@ void main() async {
 
   await CustomServer().initialization(
     handler: handler,
-    address: await CustomEnv.get(key: 'SERVER_ADDRESS'),
-    port: int.parse(await CustomEnv.get(key: 'SERVER_PORT')),
+    address: await CustomEnv.get<String>(key: 'SERVER_ADDRESS'),
+    port: await CustomEnv.get<int>(key: 'SERVER_PORT'),
   );
 }
